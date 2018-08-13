@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Produkt</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<section>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Produkt</h1>
+			</div>
+		</div>
+	</section>
+	<section class="container">
+		<div class="row">
+			<div class="col-md-5" th:each="sproduct : ${product}">
+				<h3 th:text="${sproduct.name}"></h3>
+				<p th:text="${sproduct.description}"></p>
+				<p th:text="'Kod produktu: '+${sproduct.productId}"><span class="label label-warning"></span></p>
+				<p th:text="'Producent: '+${sproduct.manufacturer}"></p>
+				<p th:text="'Kategoria: '+${sproduct.category}"></p>
+				<p th:text="'Dostępna liczba sztuk: '+${sproduct.unitsInStock}"></p>
+				<h4 th:text="${sproduct.unitPrice}+' PLN'"></h4>
+				<a href="#" class="btn btn-warning btn-large">Zamów teraz</a>
+				<a th:href="@{/products}" class="btn btn-default">Powrót</a>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
